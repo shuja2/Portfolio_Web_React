@@ -17,6 +17,9 @@ const Navbar = () => {
           .Navbar .rightSide {
             padding: 15px;
           }
+          .Navbar .leftSide{
+            padding-left: 50px
+          }
           .leftSide #name {
             font-size: 25px;
             font-weight: 500;

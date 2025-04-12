@@ -13,6 +13,7 @@ const AboutMe = () => {
             /* height: 250px; */
             vertical-align: middle;
             padding: 1.2cm;
+            padding-left: 50px;
           }
           #waving-hand {
             width: 60px;
