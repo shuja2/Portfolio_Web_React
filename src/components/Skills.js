@@ -58,30 +58,30 @@ const Skills = () => {
         <div className="skill">
           <img src="./html5.png" alt="" />
           <h6>HTML</h6>
-          <p>3 years experience</p>
+          <p>2 years experience</p>
         </div>
 
         <div className="skill">
           <img src="./CSS3.png" alt=""/>
           <h6>CSS</h6>
-          <p>3 years experience</p>
+          <p>2 years experience</p>
         </div>
 
         <div className="skill">
           <img src="./js.jpeg" alt=""/>
           <h6>JavaScript</h6>
-          <p>3 years experience</p>
+          <p>2 years experience</p>
         </div>
 
         <div className="skill">
           <img src="./react.png" alt=""/>
           <h6>React</h6>
-          <p>2 years experience</p>
+          <p>1 years experience</p>
         </div>
         <div className="skill">
           <img src="./node.png" alt=""/>
           <h6>Node.js</h6>
-          <p>2 years experience</p>
+          <p>1 years experience</p>
         </div>
       </div>
     </div>
