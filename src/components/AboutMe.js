@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <div className="about-me" id="about-me">
       <style jsx>{`
-        .about {
+        .about-me {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -54,7 +54,7 @@ const AboutMe = () => {
         }
 
         @media (max-width: 768px) {
-          .about {
+          .about-me {
             flex-direction: column;
             text-align: center;
             padding: 20px;

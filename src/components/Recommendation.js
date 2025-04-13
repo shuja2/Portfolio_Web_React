@@ -142,6 +142,12 @@ const Recommendation = () => {
             align-items: center;
           }
         }
+        @media (max-width: 600px) {
+            #recommendations h2 {
+                font-size: calc(1rem + 3vw);
+
+            }
+        }
       `}</style>
 
       <h2>Recommendations</h2>
