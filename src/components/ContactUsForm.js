@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const sanitizeInput = (str, maxLength = 300) => {
-  return str
-    .replace(/<\/?[^>]+(>|$)/g, "")
-    .trim()
-    .substring(0, maxLength);
+  return str.replace(/<\/?[^>]+(>|$)/g, "").trim().substring(0, maxLength);
 };
 
 export default function ContactUsForm() {
@@ -51,23 +48,22 @@ export default function ContactUsForm() {
 
     try {
       const timestamp = new Date().toLocaleString();
-      // Send email via EmailJS
+
       await emailjs.send(
-        "service_7kwxw77", // Replace with your EmailJS Service ID
-        "template_ac3h07e", // Replace with your EmailJS Template ID
+        "service_7kwxw77",
+        "template_ac3h07e",
         {
           subject: sanitizedData.subject,
-          timestamp: timestamp,
+          timestamp,
           name: sanitizedData.name,
           email: sanitizedData.email,
           message: sanitizedData.message,
         },
-        "aOAZu9PPRrXo-Qnk2" // Replace with your EmailJS Public Key
+        "aOAZu9PPRrXo-Qnk2"
       );
 
-      // Show thank-you message
       setStatus("Thank you for contacting us! Your message has been sent.");
-      setForm({ name: "", email: "", message: "", subject: "" });
+      setForm({ name: "", email: "", subject: "", message: "" });
       setTimeout(() => setStatus(""), 5000);
     } catch (err) {
       console.error("EmailJS error:", err);
@@ -76,110 +72,129 @@ export default function ContactUsForm() {
   };
 
   return (
-    <div id="contact-us">
+    <div id="contact-us" className="contact-form-wrapper">
       <style jsx>{`
-        #contact-us .form-container {
+        .contact-form-wrapper {
           max-width: 600px;
           margin: 0 auto;
           padding: 20px;
         }
-        #contact-us input,
-        #contact-us textarea {
-          font-family: "Trebuchet MS", Arial, sans-serif;
+
+        .contact-form-title {
+          color: #7600bc;
+          font-size: 2.25rem;
+          margin-bottom: 1.25rem;
+          text-align: center;
+        }
+
+        .form-input,
+        .form-textarea {
           width: 100%;
           padding: 12px;
           margin: 8px 0;
           border: 1px solid #ccc;
           border-radius: 4px;
+          font-family: "Trebuchet MS", Arial, sans-serif;
+          font-size: 1rem;
           box-sizing: border-box;
         }
-        #contact-us textarea {
+
+        .form-textarea {
           resize: vertical;
           min-height: 120px;
         }
-        #contact-us h2 {
-          color: #7600bc;
-          font-size: 36px;
-          margin-bottom: 20px;
+
+        .form-error {
+          color: red;
+          font-size: 0.875rem;
+          margin-top: -0.5rem;
+          margin-bottom: 0.5rem;
         }
-        #contact-us button {
-            background-color: #7600bc;
+
+        .submit-btn {
+          background-color: #7600bc;
           color: white;
-          border: solid 2px transparent;
+          border: 2px solid transparent;
           padding: 12px 24px;
           border-radius: 6px;
-          font-size: 18px;
+          font-size: 1.125rem;
           cursor: pointer;
           display: block;
-          margin: 20px auto;
-          transition: all 0.6s ease-in-out;
+          margin: 20px auto 10px auto;
+          transition: all 0.4s ease-in-out;
         }
-        #contact-us button:hover {
+
+        .submit-btn:hover {
           border-color: #5a0096;
           color: #7600bc;
           background-color: white;
         }
-        #contact-us .error {
-          color: red;
-          font-size: 14px;
-          margin-top: -6px;
-          margin-bottom: 6px;
-        }
-        #contact-us .status {
+
+        .form-status {
           text-align: center;
+          font-size: 1rem;
+          margin-top: 0.5rem;
           color: ${status.includes("Failed") ? "red" : "green"};
-          margin-top: 10px;
         }
+
         @media (max-width: 600px) {
-          #contact-us input,
-          #contact-us textarea {
-            width: 100%;
+          .form-input,
+          .form-textarea {
+            font-size: 1rem;
           }
         }
       `}</style>
-      <div className="form-container">
-        <h2>Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Your Name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          {errors.name && <p className="error">{errors.name}</p>}
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          {errors.email && <p className="error">{errors.email}</p>}
-          <input
-            type="text"
-            placeholder="Subject/title"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            required
-          />
-          {errors.subject && <p className="error">{errors.subject}</p>}
-          <textarea
-            id="message"
-            placeholder="Your Message"
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            required
-          />
-          {errors.message && <p className="error">{errors.message}</p>}
-          <button type="submit">Send Message</button>
-          {status && <p className="status">{status}</p>}
-        </form>
-      </div>
+
+      <h2 className="contact-form-title">Contact Us</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-input"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        {errors.name && <p className="form-error">{errors.name}</p>}
+
+        <input
+          className="form-input"
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        {errors.email && <p className="form-error">{errors.email}</p>}
+
+        <input
+          className="form-input"
+          type="text"
+          name="subject"
+          placeholder="Subject/Title"
+          value={form.subject}
+          onChange={handleChange}
+          required
+        />
+        {errors.subject && <p className="form-error">{errors.subject}</p>}
+
+        <textarea
+          className="form-textarea"
+          name="message"
+          placeholder="Your Message"
+          value={form.message}
+          onChange={handleChange}
+          required
+        />
+        {errors.message && <p className="form-error">{errors.message}</p>}
+
+        <button type="submit" className="submit-btn">
+          Send Message
+        </button>
+        {status && <p className="form-status">{status}</p>}
+      </form>
     </div>
   );
 }

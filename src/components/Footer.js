@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -9,6 +10,7 @@ const Footer = () => {
           color: #f0f0f0;
           padding: 40px 20px 20px;
           font-family: "Segoe UI", sans-serif;
+          overflow-x: scale-down;
         }
 
         .footer-container {
@@ -60,13 +62,18 @@ const Footer = () => {
           margin-bottom: 10px;
         }
 
+        .social-icons {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+        }
+
         .social-icons a {
-          display: inline-block;
-          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          font-size: 20px;
           color: #cccccc;
-          text-decoration: none;
           transition: color 0.3s;
-          font-size: 14px;
         }
 
         .social-icons a:hover {
@@ -96,8 +103,8 @@ const Footer = () => {
             margin-bottom: 20px;
           }
 
-          .social-icons a {
-            margin: 0 5px;
+          .social-icons {
+            justify-content: center;
           }
         }
       `}</style>
@@ -108,22 +115,44 @@ const Footer = () => {
           <p>Full-Stack Developer | Creative Thinker | Problem Solver</p>
         </div>
 
-        <div className="footer-middle">
+        <nav className="footer-middle" aria-label="Footer Navigation">
           <ul className="footer-links">
-            <li><a href="#about-me">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#recommendations">Reviews</a></li>
-            <li><a href="#contact-us">Contact</a></li>
+            <li><a href="#about-me" aria-label="About section">About</a></li>
+            <li><a href="#skills" aria-label="Skills section">Skills</a></li>
+            <li><a href="#projects" aria-label="Projects section">Projects</a></li>
+            <li><a href="#recommendations" aria-label="Recommendations section">Reviews</a></li>
+            <li><a href="#contact-us" aria-label="Contact section">Contact</a></li>
           </ul>
-        </div>
+        </nav>
 
         <div className="footer-right">
           <p>Connect with me</p>
           <div className="social-icons">
-            <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:your@email.com">Email</a>
+            <a
+              href="https://github.com/shuja2"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              style={{ color: "#6e5494" }}
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shuja20123"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              style={{ color: "#0077b5" }}
+            >
+              <FaLinkedin size={24} />
+            </a>
+            <a
+              href="mailto:shuja20123@email.com"
+              aria-label="Send Email"
+              style={{ color: "#ea4335" }}
+            >
+              <FaEnvelope size={24} />
+            </a>
           </div>
         </div>
       </div>

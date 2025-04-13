@@ -63,18 +63,18 @@ const Recommendation = () => {
       <style jsx>{`
         #recommendations {
           margin: 0 20px;
-          padding: 20px;
+          padding: 20px 0px;
         }
         #recommendations h2 {
           color: #7600bc;
           font-size: 36px;
           margin-bottom: 20px;
+          text-align: center;
         }
         #recommendations .recommendations-list {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 20px;
-          padding: 20px;
         }
         #recommendations .recommendation {
           position: relative;
@@ -86,13 +86,14 @@ const Recommendation = () => {
           line-height: 1.5;
           text-align: justify;
           min-height: 120px;
-          transition: transform 0.2s;
+          transition: transform 0.2s, box-shadow 0.2s;
           font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
             "Lucida Sans", Arial, sans-serif;
           font-style: italic;
         }
         .recommendation:hover {
           transform: translateY(-5px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhance hover shadow */
         }
         .recommendation span.quote {
           color: #7600bc;
@@ -105,7 +106,7 @@ const Recommendation = () => {
           margin-top: 10px;
           font-size: 14px;
         }
-         .delete-btn {
+        .delete-btn {
           position: absolute;
           top: 10px;
           right: 10px;
@@ -128,15 +129,23 @@ const Recommendation = () => {
         .recommendation.hardcoded:hover .delete-btn {
           display: none;
         }
+        .recommendation.hardcoded {
+          background-color: #f9f9f9; /* Different background for hardcoded items */
+        }
         @media (max-width: 600px) {
           .recommendations-list {
             grid-template-columns: 1fr;
           }
         }
-        #recommendations  .recommender-name {
-          font-family: serif;
-          font-style: normal;
-          font-weight: 600;
+        @media (max-width: 350px) {
+          #recommendations h2 {
+            font-size: 100% !important;
+          }
+          .recommendation {
+            width: 80vw;
+            padding: 10px !important;
+            margin: 0 auto;
+          }
         }
       `}</style>
       <h2>Recommendations</h2>

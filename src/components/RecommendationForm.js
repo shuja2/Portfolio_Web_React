@@ -69,12 +69,12 @@ export default function RecommendationForm({ addRecommendation }) {
   };
 
   return (
-    <div id="re">
+    <div id="recommendation-form" className="form-container">
       <style jsx>{`
         .form-container {
           max-width: 600px;
           margin: 0 auto;
-          padding: 20px;
+          {/* padding: 20px; */}
         }
         .form-container input,
         .form-container textarea {
@@ -92,8 +92,11 @@ export default function RecommendationForm({ addRecommendation }) {
         }
         .form-container h2 {
           color: #7600bc;
-          font-size: 36px;
+          font-size: 32px;
+          margin-top: 50px;
           margin-bottom: 20px;
+          text-align: center;
+
         }
         .form-container .submit-btn {
           background-color: #7600bc;
@@ -124,9 +127,12 @@ export default function RecommendationForm({ addRecommendation }) {
           margin-top: 10px;
         }
         @media (max-width: 600px) {
+          .form-container h2 {
+            font-size: 28px;
+          }
           input,
           textarea {
-            width: 100%;
+            font-size: 14px;
           }
         }
       `}</style>
