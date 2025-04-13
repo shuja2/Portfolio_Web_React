@@ -4,7 +4,6 @@ import RecommendationForm from "./RecommendationForm";
 const Recommendation = () => {
   const [recommendations, setRecommendations] = useState([]);
 
-  // Hardcoded recommendations
   const hardcodedRecommendations = [
     {
       id: "hardcoded-1",
@@ -27,16 +26,13 @@ const Recommendation = () => {
   ];
 
   useEffect(() => {
-    // Load recommendations from localStorage on mount
     try {
       const stored = JSON.parse(
         localStorage.getItem("recommendations") || "[]"
       );
-      // Combine hardcoded and stored recommendations
       setRecommendations([...hardcodedRecommendations, ...stored]);
     } catch (err) {
       console.error("Error loading recommendations:", err);
-      // Fallback to hardcoded recommendations
       setRecommendations(hardcodedRecommendations);
     }
   }, []);
@@ -46,7 +42,6 @@ const Recommendation = () => {
   };
 
   const deleteRecommendation = (id) => {
-    // Prevent deletion of hardcoded recommendations
     if (id.toString().startsWith("hardcoded")) return;
     const updated = recommendations.filter((rec) => rec.id !== id);
     setRecommendations(updated);
@@ -63,20 +58,23 @@ const Recommendation = () => {
       <style jsx>{`
         #recommendations {
           margin: 0 20px;
-          padding: 20px 0px;
+          padding: 20px 0;
         }
+
         #recommendations h2 {
           color: #7600bc;
           font-size: 36px;
           margin-bottom: 20px;
           text-align: center;
         }
-        #recommendations .recommendations-list {
+
+        .recommendations-list {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
         }
-        #recommendations .recommendation {
+
+        .recommendation {
           position: relative;
           background-color: #fff;
           border-radius: 12px;
@@ -90,22 +88,29 @@ const Recommendation = () => {
           font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
             "Lucida Sans", Arial, sans-serif;
           font-style: italic;
+          {/* flex-grow: 1;
+          flex-shrink: 1;
+          max-width: 300px; */}
         }
+
         .recommendation:hover {
           transform: translateY(-5px);
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhance hover shadow */
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
-        .recommendation span.quote {
+
+        .quote {
           color: #7600bc;
           font-size: 24px;
           font-weight: bold;
         }
-        .recommendation .name {
+
+        .recommender-name {
           color: #333;
           font-weight: 600;
           margin-top: 10px;
           font-size: 14px;
         }
+
         .delete-btn {
           position: absolute;
           top: 10px;
@@ -122,32 +127,23 @@ const Recommendation = () => {
           text-align: center;
           display: none;
         }
+
         .recommendation:hover .delete-btn {
           display: block;
         }
-        /* Hide delete button for hardcoded recommendations */
+
         .recommendation.hardcoded:hover .delete-btn {
           display: none;
         }
-        .recommendation.hardcoded {
-          background-color: #f9f9f9; /* Different background for hardcoded items */
-        }
+
         @media (max-width: 600px) {
           .recommendations-list {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: 350px) {
-          #recommendations h2 {
-            font-size: 100% !important;
-          }
-          .recommendation {
-            width: 80vw;
-            padding: 10px !important;
-            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
           }
         }
       `}</style>
+
       <h2>Recommendations</h2>
       <div className="recommendations-list" id="recommendations-list">
         {recommendations.length === 0 ? (
@@ -169,6 +165,7 @@ const Recommendation = () => {
                   className="delete-btn"
                   onClick={() => deleteRecommendation(rec.id)}
                   title="Delete recommendation"
+                  aria-label="Delete recommendation"
                 >
                   ×
                 </button>

@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutMe = () => {
   return (
-    <div className="about">
+    <div className="about-me" id="about-me">
       <style jsx>{`
         .about {
           display: flex;

@@ -107,6 +107,7 @@ const Footer = () => {
             justify-content: center;
           }
         }
+ 
       `}</style>
 
       <div className="footer-container">
@@ -117,11 +118,31 @@ const Footer = () => {
 
         <nav className="footer-middle" aria-label="Footer Navigation">
           <ul className="footer-links">
-            <li><a href="#about-me" aria-label="About section">About</a></li>
-            <li><a href="#skills" aria-label="Skills section">Skills</a></li>
-            <li><a href="#projects" aria-label="Projects section">Projects</a></li>
-            <li><a href="#recommendations" aria-label="Recommendations section">Reviews</a></li>
-            <li><a href="#contact-us" aria-label="Contact section">Contact</a></li>
+            <li>
+              <a href="#about-me" aria-label="About section">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#skills" aria-label="Skills section">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects" aria-label="Projects section">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#recommendations" aria-label="Recommendations section">
+                Reviews
+              </a>
+            </li>
+            <li>
+              <a href="#contact-us" aria-label="Contact section">
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
 

@@ -10,7 +10,7 @@ const Skills = () => {
   ]);
 
   return (
-    <div className="skills">
+    <div className="skills" id="skills">
       <style jsx>{`
         .skills {
           padding: 40px 50px;
