@@ -12,13 +12,14 @@ const Navbar = () => {
             align-items: center;
             color: white;
             background-color: #7600bc;
+            padding: 15px 50px;
           }
           .Navbar .leftSide,
           .Navbar .rightSide {
-            padding: 15px;
+            /*padding: 15px;*/
           }
           .Navbar .leftSide{
-            padding-left: 50px
+           /* padding-left: 50px*/
           }
           .leftSide #name {
             font-size: 25px;

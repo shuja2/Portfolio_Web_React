@@ -6,28 +6,28 @@ const Skills = () => {
       <style jsx>
         {`
           #skills {
-            margin-left: 50px;
+            margin: 0px 50px;
           }
           #skills h2 {
             color: #7600bc;
             font-size: 50px;
-             {
-              /* margin: 30px; */
-            }
           }
           #skills-container {
+            gap: 30px;
             display: flex;
             flex-direction: row;
             flex-flow: wrap;
+            justify-content: space-between;
+            /* padding-right: 50px; */
+            padding-bottom: 30px;
           }
           .skill {
             border: 1px solid gray;
             display: block;
             border-radius: 6px;
             text-align: center;
-            margin: 0px 100px 100px 0px;
-            padding: 10px;
-            width: 2in;
+            padding: 30px;
+            /* width: 2in; */
             font-size: 20px;
             box-shadow: 0 3px 10px gray;
           }
@@ -55,31 +55,31 @@ const Skills = () => {
       </style>
       <h2>Skills</h2>
       <div id="skills-container">
-        <div class="skill">
-          <img src="./html5.png" />
+        <div className="skill">
+          <img src="./html5.png" alt="" />
           <h6>HTML</h6>
           <p>3 years experience</p>
         </div>
 
-        <div class="skill">
-          <img src="./CSS3.png" />
+        <div className="skill">
+          <img src="./CSS3.png" alt=""/>
           <h6>CSS</h6>
           <p>3 years experience</p>
         </div>
 
-        <div class="skill">
-          <img src="./js.jpeg" />
+        <div className="skill">
+          <img src="./js.jpeg" alt=""/>
           <h6>JavaScript</h6>
           <p>3 years experience</p>
         </div>
 
-        <div class="skill">
-          <img src="./react.png" />
+        <div className="skill">
+          <img src="./react.png" alt=""/>
           <h6>React</h6>
           <p>2 years experience</p>
         </div>
-        <div class="skill">
-          <img src="./node.png" />
+        <div className="skill">
+          <img src="./node.png" alt=""/>
           <h6>Node.js</h6>
           <p>2 years experience</p>
         </div>
