@@ -113,6 +113,16 @@ const Projects = () => {
           </ul>
           <hr />
         </div>
+        <div className="project">
+          <h3>Social Media Console Based Application</h3>
+          <ul>
+            <li>
+            Developed a console application using C++, allowing users to 
+            signup, login, create posts , and add comments. 
+            </li>
+          </ul>
+          <hr />
+        </div>
       </div>
     </div>
   );
