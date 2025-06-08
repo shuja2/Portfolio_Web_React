@@ -7,6 +7,7 @@ const Skills = () => {
     { id: 3, name: "JavaScript", experience: "2 years experience", icon: "./js.jpeg" },
     { id: 4, name: "React", experience: "1 year experience", icon: "./react.png" },
     { id: 5, name: "Node.js", experience: "1 year experience", icon: "./node.png" },
+    { id: 6, name: "C++", experience: "3 year experience", icon: "./cpp.png" },
   ]);
 
   return (
