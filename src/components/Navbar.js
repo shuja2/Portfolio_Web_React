@@ -143,7 +143,7 @@ const Navbar = () => {
             <span className="icon">
               <FaPhoneAlt />
             </span>
-            <a href="tel:+92324252534">+92 324 252534</a>
+            <a href="tel:+923234252534">+92 323 4252534</a>
           </div>
         </div>
 
