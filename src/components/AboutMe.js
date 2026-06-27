@@ -79,11 +79,15 @@ const AboutMe = () => {
       <div className="about__content">
         <h1 className="about__title">
           Hi, I'm Shuja Ur Rehman!
-          <img src="./waving-hand.png" alt="Waving hand" className="about__waving" />
+          <img
+            src="./waving-hand.png"
+            alt="Waving hand"
+            className="about__waving"
+          />
         </h1>
         <p className="about__description">
-          I am an aspiring full stack developer currently pursuing a Bachelor's
-          in Software Engineering. I have completed the IBM Full Stack
+          I am an aspiring full stack developer, recent Graduate in Bachelor's
+          of Software Engineering. I have completed the IBM Full Stack
           JavaScript Developer professional certificate on Coursera, which
           equipped me with skills in both frontend and backend technologies.
           While I haven't worked professionally in a full stack role yet, I have

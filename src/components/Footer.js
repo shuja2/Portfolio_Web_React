@@ -179,7 +179,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&#169; 2025 Shuja Ur Rehman. All rights reserved.</p>
+        <p>&#169; 2026 Shuja Ur Rehman. All rights reserved.</p>
       </div>
     </footer>
   );
